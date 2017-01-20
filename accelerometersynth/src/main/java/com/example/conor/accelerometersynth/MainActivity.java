@@ -32,7 +32,7 @@ import java.io.IOException;
 import static java.lang.Math.pow;
 
 
-public class MainActivity extends AppCompatActivity implements LocationListener, SensorEventListener{
+public class MainActivity extends AppCompatActivity implements LocationListener, SensorEventListener, SeekBar.OnSeekBarChangeListener{
     EditText amp;
     EditText freq;
 
@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         mSensorManager.registerListener(this, magnetometer, SensorManager.SENSOR_DELAY_GAME);
         try{
             initPD();
-            loadPDPatch("synth.pd");
+            loadPDPatch("synth.pd"); // This is the name of the patch in the zip
 
         }catch(IOException e)
         {
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
             new SeekBar.OnSeekBarChangeListener(){
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                    sendFloatPD("rSliderValue",Float.parseFloat(String.valueOf(progress)));
+                    sendFloatPD("rSliderValue",Float.parseFloat(String.valueOf(progress))); //I declared the receive event for the slider as rSliderValue
                 }
 
                 @Override
