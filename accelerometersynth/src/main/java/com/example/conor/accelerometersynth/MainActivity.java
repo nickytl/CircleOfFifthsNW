@@ -32,7 +32,7 @@ import java.io.IOException;
 import static java.lang.Math.pow;
 
 
-public class MainActivity extends AppCompatActivity implements LocationListener, SensorEventListener, SeekBar.OnSeekBarChangeListener{
+public class MainActivity extends AppCompatActivity implements LocationListener, SensorEventListener{
     EditText amp;
     EditText freq;
 
